@@ -1,5 +1,6 @@
 ---@class snacks.picker.Config
 ---@field supports_live? boolean
+---@field resumable? boolean
 
 ---@class snacks.picker.sources.Config
 ---@field [string] snacks.picker.Config|{}
@@ -700,7 +701,7 @@ M.projects = {
   patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "package.json", "Makefile" },
   recent = true,
   matcher = {
-    frecency = true, -- use frecency boosting
+    frecency = true,   -- use frecency boosting
     sort_empty = true, -- sort even when the filter is empty
     cwd_bonus = false,
   },
@@ -787,10 +788,10 @@ M.select = {
 ---@field filter? snacks.picker.filter.Config
 M.smart = {
   multi = { "buffers", "recent", "files" },
-  format = "file", -- use `file` format for all sources
+  format = "file",     -- use `file` format for all sources
   matcher = {
-    cwd_bonus = true, -- boost cwd matches
-    frecency = true, -- use frecency boosting
+    cwd_bonus = true,  -- boost cwd matches
+    frecency = true,   -- use frecency boosting
     sort_empty = true, -- sort even when the filter is empty
   },
   transform = "unique_file",
